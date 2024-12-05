@@ -1,0 +1,45 @@
+<div class="row">
+    <div class="card col-sm-12 mt-5">
+        <div class="row p-0">
+            <div class="col-md-4 p-0">
+                <%= image_tag @photo.image.url, class:"img-fluid rounded-start" if @photo.image? %>
+            </div>
+            <div class="col-md-8">
+                <div class="card-body">
+                    <h3 class="card-title"><%= @photo.title %></h3>
+                    <p class="card-text"><%= @photo.description %></p>
+                    <p class="card-text"><small class="text-muted">Fecha de Ingreso: <%= @photo.created_at.strftime("%d-%m-%Y %H:%M:%S") %></small></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 mt-3">
+        <h3>Comentarios</h3>
+        <% @comments.each do |comment| %>
+            <div class="col-12">
+                <p><%= image_tag comment.user.profile_picture.url, class: "profile-pic rounded-circle", style: "width:45px;" if comment.user.profile_picture? %>&nbsp;<strong><%= comment.user.name %>: </strong><%= comment.content %></p>
+            </div>
+        <% end %>
+    </div>
+    <div class="col-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 mt-3">
+        <h3>Agregar un comentario</h3>
+        <%= form_with(model: [ @photo, @comment ]) do |form| %>
+            <div class="form-group mb-3">
+                <%= form.text_area :content, class: 'form-control', row:'3' %>
+            </div>
+            <div class="form-group mb-3">
+                <%= form.submit 'Comentar', class:'btn btn-primary btn-sm' %>
+                <%= link_to "Regresar", root_path, class: 'btn btn-success btn-sm' %>
+            </div>
+            
+            
+        <% end %>
+    </div>
+</div>
+
+
+
+
+
+
+

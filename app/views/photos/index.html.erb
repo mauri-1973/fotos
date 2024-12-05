@@ -1,0 +1,21 @@
+<div class="row mt-4">
+<h1>Fotografías de Karina</h1>
+<% if current_user && current_user.karina? %>
+  <%= link_to "Ingresar Imagen", new_photo_path, class: "btn btn-primary btn-sm", style:'width:150px !important' %>
+
+<% end %>
+
+
+</div>
+<div class="row mt-5">
+<% @photos.each do |photo| %>
+    <div class="col-3 col-lg-3 col-md-3 col-sm-12 col-xs-12 card p-0" style="margin-right:10px;">
+        <%= image_tag photo.image.url, class: 'card-img-top' if photo.image? %>
+        <div class="card-body">
+            <h5 class="card-title"><%= photo.title %></h5>
+            <p class="card-text"><%= truncate(photo.description, length: 40) %></p>
+            <%= link_to 'Ver Más', photo_path(photo), class:'btn btn-primary btn-sm' %>
+        </div>
+    </div>
+<% end %>
+</div>

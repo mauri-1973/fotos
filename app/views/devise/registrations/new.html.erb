@@ -1,0 +1,44 @@
+<div class="row">
+  <div class="col-6 offset-3 col-xl-6 offset-3 col-lg-6 offset-3 col-md-6 offset-3 col-sm-12 col-xs-12">
+    <h2>Registrarse</h2>
+
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      
+      <%= render "devise/shared/error_messages", resource: resource %>
+
+      <div class="form-group mb-3">
+        <%= f.label :name %><br />
+        <%= f.text_field :name, autofocus: true , class: 'form-control' %>
+      </div>
+
+      <div class="form-group mb-3">
+        <%= f.label :email %><br />
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control' %>
+      </div>
+
+      <div class="form-group mb-3">
+        <%= f.label :password %><br />
+        <%= f.password_field :password, autocomplete: "new-password", class: 'form-control' %>
+      </div>
+
+      <div class="form-group mb-3">
+        <%= f.label :password_confirmation %>
+        <%= f.password_field :password_confirmation, autocomplete: "new-password", class: 'form-control' %>
+      </div>
+
+      <div class="form-group mb-3">
+        <%= f.label :profile_picture, "Foto de perfil" %>
+        <%= f.file_field :profile_picture, class: 'form-control' %>
+      </div>
+
+      <div class="form-group mb-3">
+        <%= f.submit "Sign up", class:'btn btn-primary btn-sm' %>
+      </div>
+    <% end %>
+
+    <%= render "devise/shared/links" %>
+  </div>
+
+</div>
+
+

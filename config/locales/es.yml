@@ -1,0 +1,15 @@
+es:
+     time:
+       formats:
+         default: "%d de %B de %Y" # Formato de fecha
+       distances:
+         from_now: "en un momento"
+         ago: "hace %{count} minutos"
+     date:
+       formats:
+         default: "%d/%m/%Y" # Formato de fecha para otras ocasiones
+     datetime:
+       distance_in_words:
+         approx: "aproximadamente"
+       formats:
+         default: "%d de %B de %Y a las %H:%M" # Formato de fecha y hora
